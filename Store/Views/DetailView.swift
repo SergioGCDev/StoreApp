@@ -96,7 +96,7 @@ struct DetailView: View {
                 } header: {
                     Text("Product Information")
                         .textCase(.uppercase)
-                        .font(.title3)
+                        .font(.title2)
                         .bold()
                 }
                 
