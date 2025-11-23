@@ -39,13 +39,26 @@ struct FavToolBar: View {
             vm.toggleFavorite(product: product)
         } label: {
             Image(systemName: vm.isFavorite(product) ? "bookmark.fill" : "bookmark")
-                .foregroundStyle(vm.isFavorite(product) ? .yellow : .gray)  // ✅
+                .foregroundStyle(vm.isFavorite(product) ? .yellow : .primary)  // ✅
+        }
+    }
+}
+
+struct ShareButton: View {
+    
+    
+    var body: some View {
+        Button {
+            Alert(title: Text("Coming soon"))
+        } label: {
+            Image(systemName: "square.and.arrow.up")
+                .foregroundStyle(.primary)  // ✅
         }
     }
 }
                     
                     
 #Preview {
-    FavToolBar(product: .productTest)
+    ShareButton() //product: .productTest
         .environmentObject(ProductVM(repository: RepositoryTest()))
 }

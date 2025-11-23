@@ -1,0 +1,27 @@
+.
+├── Assets.xcassets
+│   ├── AccentColor.colorset
+│   │   └── Contents.json
+│   ├── AppIcon.appiconset
+│   │   └── Contents.json
+│   └── Contents.json
+├── Components
+│   ├── ProductRow.swift
+│   └── SwipeFav.swift
+├── Models
+│   └── DataModel.swift
+├── Repository
+│   ├── DataRepository.swift
+│   ├── JSONLoader.swift
+│   └── Repository.swift
+├── Resources
+│   ├── products_100.json
+│   └── products_7.json
+├── ViewModel
+│   └── ProductVM.swift
+├── Views
+│   ├── ContentView.swift
+│   └── DetailView.swift
+└── StoreApp.swift
+
+10 directories, 15 files

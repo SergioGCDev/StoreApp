@@ -14,7 +14,7 @@ struct StoreApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
                 .environmentObject(vm) // Lo lleva implícito en el ContentView u otras Views.
         }
     }

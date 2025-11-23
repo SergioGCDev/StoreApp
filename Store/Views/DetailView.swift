@@ -13,7 +13,7 @@ struct DetailView: View {
     
     var product: Product
     
-    @State var primaryImage: String = ""
+    @State private var primaryImage: String = ""
     
     var body: some View {
         ZStack {
@@ -110,7 +110,8 @@ struct DetailView: View {
             .navigationTitle(product.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem {
+                ToolbarItemGroup {
+                    ShareButton()
                     FavToolBar(product: product)
                 }
             }

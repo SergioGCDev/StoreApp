@@ -8,7 +8,9 @@
 import SwiftUI
 import Foundation
 
-enum ProductCategory: String, Codable, CaseIterable {
+enum ProductCategory: String, Identifiable, Codable, CaseIterable {
+    var id: String { self.rawValue }
+    case all = "all"
     case beauty
     case fragrances
     case furniture
@@ -24,6 +26,8 @@ enum ProductCategory: String, Codable, CaseIterable {
     // Icono SF Symbol
     var icon: String {
         switch self {
+        case .all:
+            return "rectangle.stack"
         case .beauty:
             return "sparkles"
         case .fragrances:
@@ -52,6 +56,8 @@ enum ProductCategory: String, Codable, CaseIterable {
     // Color representativo
     var color: Color {
         switch self {
+        case .all:
+            return .primary
         case .beauty:
             return .pink
         case .fragrances:
@@ -80,6 +86,8 @@ enum ProductCategory: String, Codable, CaseIterable {
     // Nombre legible para mostrar
     var displayName: String {
         switch self {
+        case .all:
+            return "All"
         case .beauty:
             return "Beauty"
         case .fragrances:

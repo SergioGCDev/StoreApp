@@ -14,6 +14,7 @@ final class ProductVM: ObservableObject {
     @Published private(set) var favoriteProducts: Set<Int> = []
     @Published var search = ""
     @Published var showOnlyFavorites: Bool = false
+    @Published var selectedCategory: ProductCategory = .all
     
     private let repository: DataRepository
     
@@ -29,10 +30,20 @@ final class ProductVM: ObservableObject {
                 // Condición 2: Favoritos
                 let matchesFavorites = !showOnlyFavorites || isFavorite(product)
                 
-                // Ambas deben cumplirse
-                return matchesSearch && matchesFavorites
+                // Condición 3: Categoría seleccionada
+                let matchesSelectedCategory = selectedCategory == .all || product.category == selectedCategory
+                
+                return matchesSearch && matchesFavorites && matchesSelectedCategory
             }
         }
+    
+    var allCategories: [ProductCategory] {
+        ProductCategory.allCases
+    }
+    
+    var allFavorites: [Product] {
+        products.filter { isFavorite($0) }
+    }
     
     init(repository: DataRepository = Repository()) {
         self.repository = repository
